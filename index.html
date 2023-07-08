@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching Algorithm Visualization</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="root">
+        <div class="sidebar">
+            <div class="sidebar-box p-3 text-white bg-dark">
+                <h5>Searching Algorithms Visualization</h5>
+                <div class="sidebar-features">
+                    <div class="box">
+                        <select id="numberOfSample">
+                            <option value="">-- No. of samples --</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <button id="generateNumber">Generate Numbers</button>
+                    </div>
+                    <div class="box">
+                        <select id="chooseAlgorithm">
+                            <option value="">-- Choose algorithm --</option>
+                        </select>
+                    </div>
+                    <div class="box">
+                        <input type="number" id="searchValue" placeholder="Enter Search Value">
+                    </div>
+                    <div class="box">
+                        <select id="timeInterval">
+                        </select>
+                    </div>
+                    <div class="box">
+                        <button id="search">Search</button>
+                    </div>
+                </div>
+                <div class="box result">
+                    <label for="">RESULT</label>
+                    <div class="result-value" id="resultValue">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="grid">
+
+            </div>
+            <div class="status">
+                <h5>Status</h5>
+                <div>Current Index: <span class="index"></span></div>
+                <div>Current Value: <span class="curr_val"></span></div>
+                <div>Search Value: <span class="sear_val"></span></div>
+                <div class="status-text"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
