@@ -230,30 +230,46 @@ $(document).ready(function () {
   const NOT_FOUND = -1;
   class Search {
     linear_search_algorithm(arr, search_value, callback) {
-      arr.forEach(function (value, index) {
-        let timeoutId = setTimeout(function () {
+      let index = 0;
+      function searchIteration(){
+        if(index < SAMPLES_SIZE){
           if (PREV_CELL >= 0) {
             $(`.cell:eq(${PREV_CELL})`).removeClass('current');
             $(`.cell:eq(${PREV_CELL})`).addClass('color1');
           }
           setCells(arr, index);
-          // $(`.cell:eq(${index})`).removeClass('color1');
-          // $(`.cell:eq(${index})`).addClass('current');
-          // CURRENT_CELL = index;
-          // PREV_CELL = index;
-          // $(".index").html(`${index}`);
-          // $(".curr_val").html(`${value}`);
-          if (value == search_value) {
+          if (arr[index] == search_value) {
             clearAll();
             callback(index);
+            return;
           }
-          else if (index == SAMPLES_SIZE - 1) {
-            callback(NOT_FOUND);
-          }
-        }, index * TIME_INTERVAL);
+          index += 1;
+          timeOutId = setTimeout(searchIteration, TIME_INTERVAL);
+        }
+        else{
+          callback(NOT_FOUND);
+          return;
+        }
+      }
+      searchIteration();
+      // arr.forEach(function (value, index) {
+      //   let timeoutId = setTimeout(function () {
+      //     if (PREV_CELL >= 0) {
+      //       $(`.cell:eq(${PREV_CELL})`).removeClass('current');
+      //       $(`.cell:eq(${PREV_CELL})`).addClass('color1');
+      //     }
+      //     setCells(arr, index);
+      //     if (value == search_value) {
+      //       clearAll();
+      //       callback(index);
+      //     }
+      //     else if (index == SAMPLES_SIZE - 1) {
+      //       callback(NOT_FOUND);
+      //     }
+      //   }, index * TIME_INTERVAL);
 
-        timeoutIds.push(timeoutId);
-      });
+      //   timeoutIds.push(timeoutId);
+      // });
     }
 
     binary_search_algorithm(arr, search_value, left, right, callback) {
@@ -265,12 +281,6 @@ $(document).ready(function () {
             $(`.cell:eq(${PREV_CELL})`).addClass('color1');
           }
           setCells(arr, mid);
-          // $(`.cell:eq(${mid})`).removeClass('color1');
-          // $(`.cell:eq(${mid})`).addClass('current');
-          // CURRENT_CELL = mid;
-          // PREV_CELL = mid;
-          // $(".index").html(`${mid}`);
-          // $(".curr_val").html(`${arr[mid]}`);
 
           if (arr[mid] == search_value) {
             clearAll();
@@ -361,12 +371,6 @@ $(document).ready(function () {
             $(`.cell:eq(${PREV_CELL})`).addClass('color1');
           }
           setCells(arr, pos);
-          // $(`.cell:eq(${pos})`).removeClass('color1');
-          // $(`.cell:eq(${pos})`).addClass('current');
-          // CURRENT_CELL = pos;
-          // PREV_CELL = pos;
-          // $(".index").html(`${pos}`);
-          // $(".curr_val").html(`${arr[pos]}`);
 
           if (arr[pos] == search_value) {
             clearAll();
